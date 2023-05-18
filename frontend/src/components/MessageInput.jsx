@@ -1,18 +1,9 @@
-import {useState} from 'react'
+import {useContext} from 'react'
+import { MessagesContext } from '../context/Messages'
 
 export default function MessageInput(){
-    const [newMessage, setNewMessage] = useState('')
-
-    async function sendMessage(){
-        await fetch("/api/messages", {
-            method: 'POST', 
-            headers: {
-                "Content-Type": "application/json",
-              },
-            body: JSON.stringify({message: newMessage})
-        } )
-        setNewMessage('')
-    }
+    const messagesContext = useContext(MessagesContext)
+    const {sendMessage, newMessage, setNewMessage} = messagesContext
 
     return <div>
         <input type='text' value={newMessage} onChange={(e)=>setNewMessage(e.target.value)} 
