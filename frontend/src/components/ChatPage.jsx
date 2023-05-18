@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react";
 import MessageViewer from "./MessageViewer.jsx";
 import MessageInput from "./MessageInput.jsx";
 
