@@ -1,6 +1,6 @@
 const messages = [
-    "one",
-    "two"
+    {user: 'Chris', message: "hi"},
+    {user: 'Daniel', message: 'well hello'}
 ]
 
 export function getAllMessages(){

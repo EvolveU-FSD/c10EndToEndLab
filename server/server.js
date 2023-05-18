@@ -16,7 +16,8 @@ app.get('/api/allMessages', (req,res)=>{
 
 app.post('/api/messages', (req, res)=>{
     const message = req.body.message
-    addAMessage(message)
+    const user = req.body.user
+    addAMessage({message, user})
     res.send(getAllMessages())
 })
 

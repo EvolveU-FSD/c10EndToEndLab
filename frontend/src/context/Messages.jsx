@@ -1,8 +1,12 @@
-import {createContext, useState, useEffect} from 'react'
+import {createContext, useState, useEffect, useContext} from 'react'
+import { UserContext } from './UserContext'
 
 export const MessagesContext = createContext()
 
 export default function MessagesContextProvider({children}){
+    const userContext = useContext(UserContext)
+    const{user} = userContext
+
     const [messages, setMessages] = useState([])
     const [newMessage, setNewMessage] = useState('')
 
@@ -21,7 +25,7 @@ export default function MessagesContextProvider({children}){
             headers: {
                 "Content-Type": "application/json",
               },
-            body: JSON.stringify({message: newMessage})
+            body: JSON.stringify({message: newMessage, user})
         } )
         const fetchedMessage = await fetchedResult.json()
         setMessages(fetchedMessage)
