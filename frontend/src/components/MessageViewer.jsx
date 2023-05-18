@@ -11,7 +11,7 @@ export default function MessageViewer(){
         loadMessage()
     }, [])
 
-    return <div  style={{width: '90%', border: '2px blue solid', margin: '5%', backgroundColor: 'white', textAlign: 'left', padding: 10}}>
+    return <div  style={{width: '90%', border: '2px blue solid', margin: '5%', backgroundColor: 'white', textAlign: 'left', padding: 10, flexGrow: 1}}>
         {messages.map((message, id)=><div key={id}>{message}</div>)}
     </div>
 }
