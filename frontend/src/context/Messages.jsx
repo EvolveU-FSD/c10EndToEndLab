@@ -17,6 +17,7 @@ export default function MessagesContextProvider({children}){
             setMessages(fetchedMessage)
         }
         loadMessage()
+        setInterval(loadMessage, 1000)
     }, [])
 
     async function sendMessage(){
